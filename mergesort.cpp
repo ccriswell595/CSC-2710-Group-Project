@@ -9,8 +9,15 @@ void mergesort (int n, S[])
   {
     const int h = [ n/2 ], m = n - h;
     U[ 1 .. h ], V[ 1 .. m ];
-    copy S[1] through S[h] to U[1] through U[h];
-    copy S[ h + 1] through S[n] to V[1] through V[m];
+    
+    for ( i = 0; i < h; i++)
+    {
+
+    }
+    for ( j = h; j < m; j++)
+    {
+
+    }
     mergesort(h, U);
     mergesort(m, V);
     merge( h, m, U, V, S );
