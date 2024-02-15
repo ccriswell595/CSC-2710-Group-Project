@@ -23,3 +23,24 @@ void mergesort (int n, S[])
     merge( h, m, U, V, S );
   }
 }
+
+void merge (L, R, S)
+{
+  nL = length(L);
+  nR = length(R);
+  index i, j, k = 1;
+  while (i ≤ nL && j ≤ nR)
+  {
+    if (L[i] ≤ R[j])
+    {
+      S[k] = L[i];
+      i++;
+    }
+    else
+    {
+      S[k] = R[j];
+      j++;
+    }
+    k++;
+  }
+}
