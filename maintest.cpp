@@ -25,7 +25,7 @@ int main()
         cin >> choice;
 
         cout << endl;
-        cout << "Enter array size (non negative): ";
+        cout << "Enter array size (non negative (greater than 10)): ";
         cin >> length;
         
         arr = fillList(length);
@@ -52,7 +52,15 @@ int main()
             default:
                 cout << "Invalid choice. Please choose a number between 1 and 7." << endl;
         }
-
+        cout << endl;
+        cout << "First 10 elements of sorted array: " << endl;
+        for(int i=0; i<10; i++)
+            {
+                cout << i << ": " << arr[i] << endl;
+            }
+        cout << endl;
+        cout << "Time: " << time << " microseconds"
+            
         delete[] arr;
     }
 
