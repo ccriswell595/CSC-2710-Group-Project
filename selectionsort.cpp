@@ -9,6 +9,9 @@ void nearlySorted(int n,int ne[]);
 void reversed(int n, int re[]);
 void fewUnique(int n, int fe[]);
 
+#ifndef SelectionSort_H
+#define SelectionSort_H
+
 int main()
 {
 
