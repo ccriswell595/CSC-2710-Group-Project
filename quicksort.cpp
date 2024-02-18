@@ -44,10 +44,12 @@ void partition(int arr[], int low, int high, int* pivot)
 
 int main() 
 {
-    int arr[100000];
-    for (int i = 0; i < 100000; i++) {
-        arr[i] = rand() % 100000;
-    }
-    quicksort(arr, 0, 99999);
-    return 0;
+    auto start = std::chrono::high_resolution_clock::now(); // Record start time
+    quicksort(arr, 0, length-1);
+    auto end = std::chrono::high_resolution_clock::now(); // Record end time
+
+    std::chrono::microseconds elapsed = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+    int time= elapsed.count();
+
+   return arr, time
 }
