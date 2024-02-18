@@ -20,23 +20,14 @@ int main()
     int* arr;
     int length;
 
-    while (true) {
+    while (choice != 7) {
         displayMenu();
         cin >> choice;
 
-        if (choice == 7) {
-            cout << "Exiting Program..." << endl;
-            break;
-        }
-
-        cout << "Enter array size (<= 100): ";
+        cout << endl;
+        cout << "Enter array size (non negative): ";
         cin >> length;
-
-        if (length <= 0 || length > 100) {
-            cout << "Invalid array size. Please enter a size between 1 and 100." << endl;
-            continue;
-        }
-
+        
         arr = fillList(length);
 
         switch (choice) {
@@ -88,7 +79,7 @@ int* fillList(int length)
     srand(time(NULL));
 
     for (int i = 0; i < length; i++) {
-        int num = rand() % 101;
+        int num = rand() % length + 1
         arr[i] = num;
     }
 
