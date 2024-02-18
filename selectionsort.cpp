@@ -2,6 +2,7 @@
 #include <iomanip>
 #include <ctime>
 #include <chrono>
+#include "sortingAlgorithms.h"
 using namespace std;
 void selectionSort(int n, int s[]);
 void randomArray(int n, int s[]);
@@ -9,8 +10,7 @@ void nearlySorted(int n,int ne[]);
 void reversed(int n, int re[]);
 void fewUnique(int n, int fe[]);
 
-#ifndef SelectionSort_H
-#define SelectionSort_H
+
 
 int main()
 {
