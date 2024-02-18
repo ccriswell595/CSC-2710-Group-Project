@@ -1,10 +1,9 @@
 //Colton Criswell
 //quicksort.cpp
-
+#include "sortingAlgorithms.h"
 #include <iostream>
 #include <ctime>
 #include <chrono>
-   
 using namespace std;
 
 void partition(int arr[], int low, int high, int* pivot); 
