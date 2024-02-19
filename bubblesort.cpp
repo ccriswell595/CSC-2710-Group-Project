@@ -27,5 +27,10 @@ void bubbleSort(int arr[], int n) {
    auto stop = high_resolution_clock::now(); //time end
    auto duration = duration_cast<microseconds>(stop - start);
 
+   for(int i = 0; i < n; i++)
+          cout << arr[i] << ", ";
+   
+   cout << "\nTime taken: " << duration.count() << " microseconds" << endl;
+   cout << "Comparisons: " << count << endl;
    
 }
