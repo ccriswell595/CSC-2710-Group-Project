@@ -4,7 +4,7 @@
 #include <chrono>
 #include "sortingAlgorithms.h"
 using namespace std;
-void selectionSort(int n, int s[]);
+int selectionSort(int n, int s[]);
 void randomArray(int n, int s[]);
 void nearlySorted(int n,int ne[]);
 void reversed(int n, int re[]);
@@ -34,8 +34,7 @@ return 0;
 int selectionSort(int n, int s[])
 {
    //time start
- auto start = std::chrono::high_resolution_clock::now(); // Record start time
-   
+ auto start = std::chrono::high_resolution_clock::now();
 int temp;
 int i, j, smallest;
 for(i=1; i<=n-2; i++)
@@ -50,8 +49,7 @@ for(i=1; i<=n-2; i++)
      s[smallest] = temp;
  }
   //time end
-auto end = std::chrono::system_clock::now();
-
+auto end = std::chrono::high_resolution_clock::now(); 
 std::chrono::nanoseconds elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
     int time= elapsed.count();
 
