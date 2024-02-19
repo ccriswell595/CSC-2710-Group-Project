@@ -13,7 +13,7 @@
 void insertionSort(int arr[], int length)
 {
       int length;
-      int S[length];
+      int arr[length];
       int count = 0;
       int x;
       
@@ -23,24 +23,24 @@ void insertionSort(int arr[], int length)
   
       for(int i = 1; i < length; i++)
       {
-          x = S[i];
+          x = arr[i];
           int j = i-1;
  
-          while(j >= 0 && S[j] > x)
+          while(j >= 0 && arr[j] > x)
           {
-              S[j + 1] = S[j];
+              arr[j + 1] = arr[j];
               j--;
               count++;
           }
-          S[j + 1] = x;
+          arr[j + 1] = x;
       }
  
       auto stop = high_resolution_clock::now();
   
       auto duration = duration_cast<microseconds>(stop - start);
-  // shows first 50 sorted numbers
-      for(int i = 0; i < 50; i++)
-          cout << S[i] << ", ";
+  // shows first 10 sorted numbers
+      for(int i = 0; i < 10; i++)
+          cout << arr[i] << ", ";
    
    cout << "\nTime taken: " << duration.count() << " microseconds" << endl;
    cout << "Comparisons: " << count << endl;
