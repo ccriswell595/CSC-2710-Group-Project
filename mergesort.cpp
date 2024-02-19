@@ -6,7 +6,12 @@ mergesort.cpp
 g++ mergesort.cpp -o merge.out
 ./merge.out
 */
+
+#include "sortingAlgorithms.h"
 #include <iostream>
+#include <ctime>
+#include <chrono>
+using namespace std;
 
 void mergesort (int arr, int start, int mid, int end)
 {
