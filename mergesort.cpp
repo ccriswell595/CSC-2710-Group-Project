@@ -17,11 +17,23 @@ void mergesort (int arr, int start, int mid, int end)
 {
   if (start < end)
   {
+    int lower[mid];
+    int upper[end];
     mid = (start + end)/2;
 
-    mergesort(arr, start, mid);
-    mergesort(arr, mid +1, end);
-    merge(arr, start, mid, end);
+    for (int i = 0; i < mid; i++)
+    {
+      lower[i] = arr[i];
+    }
+
+    for(int j = mid; j < end; j++)
+    {
+      upper[index] = arr[j];
+      index++;
+    }
+    mergesort(lower, mid);
+    mergesort(upper,  end);
+    merge(arr, lower, upper, mid, end);
   }
 }
 
