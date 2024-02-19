@@ -4,7 +4,7 @@
 #include <chrono>
 #include "sortingAlgorithms.h"
 using namespace std;
-int selectionSort(int n, int s[]);
+int selectionSort(int s[], int n);
 void randomArray(int n, int s[]);
 void nearlySorted(int n,int ne[]);
 void reversed(int n, int re[]);
@@ -31,7 +31,7 @@ return 0;
 
 
    //selection sort code
-int selectionSort(int n, int s[])
+int selectionSort(int s[], int n)
 {
    //time start
  auto start = std::chrono::high_resolution_clock::now();
@@ -72,7 +72,7 @@ int i;
 auto start = std::chrono::system_clock::now();
 
    //selection sort call
-selectionSort(n, s);
+selectionSort(s, n);
 
    //time end
 auto end = std::chrono::system_clock::now();
@@ -95,7 +95,7 @@ void nearlySorted(int n, int ne[])
 auto start = std::chrono::system_clock::now();
 
    //selection sort call
-selectionSort(n, ne);
+selectionSort(ne, n);
 
    //time end
 auto end = std::chrono::system_clock::now();
@@ -117,7 +117,7 @@ void reversed(int n, int re[])
 auto start = std::chrono::system_clock::now();
 
    //selection sort call
-selectionSort(n, re);
+selectionSort(re, n);
 
    //time end
 auto end = std::chrono::system_clock::now();
@@ -139,7 +139,7 @@ void fewUnique(int n, int fe[])
 auto start = std::chrono::system_clock::now();
 
    //selection sort call
-selectionSort(n, fe);
+selectionSort(fe, n);
 
    //time end
 auto end = std::chrono::system_clock::now();
