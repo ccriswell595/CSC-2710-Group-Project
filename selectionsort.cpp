@@ -31,7 +31,7 @@ return 0;
 
 
    //selection sort code
-void selectionSort(int n, int s[])
+int selectionSort(int n, int s[])
 {
    //time start
 auto start = std::chrono::system_clock::now();
@@ -58,6 +58,8 @@ std::chrono::duration<double> elapsed_seconds = end-start;
 
     std::cout << "sort time  " << elapsed_seconds.count() << "s"
               << std::endl;
+
+   return time;
  }
    
    //random array initialize aand sort
