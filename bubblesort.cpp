@@ -1,7 +1,9 @@
-// Hannah Bush
-// bubblesort.cpp
-// g++ bubblesort.cpp -o bubble.out
-// ./bubble.out
+/*
+   Hannah Bush
+   bubblesort.cpp
+   g++ bubblesort.cpp -o bubble.out
+   ./bubble.out
+*/ 
    #include "sortingAlgorithms.h"
    #include <iostream>
    #include <ctime>
