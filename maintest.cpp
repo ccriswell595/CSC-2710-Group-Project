@@ -37,7 +37,7 @@ int main()
                 //selectionSort(arr, length);
                 break;
             case 2:
-                //bubbleSort(arr, length);
+                //bubblesort(arr, length);
                 break;
             case 3:
                 //insertionSort(arr, length);
