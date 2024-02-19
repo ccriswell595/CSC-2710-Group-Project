@@ -35,7 +35,9 @@ void insertionSort(int arr[], int length)
       auto stop = high_resolution_clock::now(); //time end
   
       auto duration = duration_cast<microseconds>(stop - start);
-   int time = duration;
-   cout << "\nTime taken: " << duration.count() << " microseconds" << endl;
-   cout << "Comparisons: " << count << endl;
+      
+   int time = duration.count();
+      return time;
+      return count;
+   
 }   
