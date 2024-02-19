@@ -24,4 +24,8 @@ void bubbleSort(int arr[], int n) {
             }
         }
     }
+   auto stop = high_resolution_clock::now(); //time end
+   auto duration = duration_cast<microseconds>(stop - start);
+
+   
 }
