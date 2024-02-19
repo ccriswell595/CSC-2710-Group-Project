@@ -52,12 +52,8 @@ for(i=1; i<=n-2; i++)
   //time end
 auto end = std::chrono::system_clock::now();
 
-
-std::chrono::duration<double> elapsed_seconds = end-start;
-    std::time_t end_time = std::chrono::system_clock::to_time_t(end);
-
-    std::cout << "sort time  " << elapsed_seconds.count() << "s"
-              << std::endl;
+std::chrono::nanoseconds elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
+    int time= elapsed.count();
 
    return time;
  }
