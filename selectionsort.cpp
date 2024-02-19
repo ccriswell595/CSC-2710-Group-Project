@@ -28,6 +28,26 @@ fewUnique(n, fe);
 
 return 0;
 }
+
+//selection sort code
+void selectionSort(int n, int s[])
+{
+
+int temp;
+int i, j, smallest;
+for(i=1; i<=n-2; i++)
+ {
+   smallest=i;
+   for(j=i+1; j<=n-1; j++)
+       if (s[j]<s[smallest])
+          smallest=j;
+
+     temp = s[i];
+     s[i] = s[smallest];
+     s[smallest] = temp;
+
+ }
+   
 //random array initialize aand sort
 void randomArray(int n, int s[])
 {
@@ -38,9 +58,7 @@ for ( int a = 0; a<n; a++)
    }
 
 int i;
-//output initial array
-for (i=0; i<n; i++)
-   cout<<s[i]<<endl;
+
 
 //time start
 auto start = std::chrono::system_clock::now();
@@ -73,8 +91,7 @@ selectionSort(n, ne);
 //time end
 auto end = std::chrono::system_clock::now();
 
-//for (i=0; i<n; i++)
- // cout<<s[i]<<endl;
+
 
 std::chrono::duration<double> elapsed_seconds = end-start;
     std::time_t end_time = std::chrono::system_clock::to_time_t(end);
@@ -96,8 +113,7 @@ selectionSort(n, re);
 //time end
 auto end = std::chrono::system_clock::now();
 
-//for (i=0; i<n; i++)
-  //cout<<s[i]<<endl;
+
 
 std::chrono::duration<double> elapsed_seconds = end-start;
     std::time_t end_time = std::chrono::system_clock::to_time_t(end);
@@ -119,8 +135,6 @@ selectionSort(n, fe);
 //time end
 auto end = std::chrono::system_clock::now();
 
-//for (i=0; i<n; i++)
-  //cout<<s[i]<<endl;
 
 std::chrono::duration<double> elapsed_seconds = end-start;
     std::time_t end_time = std::chrono::system_clock::to_time_t(end);
@@ -128,23 +142,6 @@ std::chrono::duration<double> elapsed_seconds = end-start;
     std::cout << "sort time for few unique: " << elapsed_seconds.count() << "s"
               << std::endl;
 }
-//selection sort code
-void selectionSort(int n, int s[])
-{
 
-int temp;
-int i, j, smallest;
-for(i=1; i<=n-2; i++)
- {
-   smallest=i;
-   for(j=i+1; j<=n-1; j++)
-       if (s[j]<s[smallest])
-          smallest=j;
-
-     temp = s[i];
-     s[i] = s[smallest];
-     s[smallest] = temp;
-
- }
 
 }
