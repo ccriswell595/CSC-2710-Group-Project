@@ -34,8 +34,8 @@ return 0;
 int selectionSort(int n, int s[])
 {
    //time start
-auto start = std::chrono::system_clock::now();
- 
+ auto start = std::chrono::high_resolution_clock::now(); // Record start time
+   
 int temp;
 int i, j, smallest;
 for(i=1; i<=n-2; i++)
