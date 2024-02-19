@@ -12,56 +12,61 @@
 using namespace std;
 
 void displayMenu();
-int* fillList(int length);
+int* fillList(int* arr, int length);
 
 int main()
 {
-    int choice;
-    int* arr;
+    int choice=0;
     int length;
 
+    displayMenu();
+    cin >> choice;
     while (choice != 7) {
-        displayMenu();
-        cin >> choice;
 
         cout << endl;
         cout << "Enter array size (non negative (greater than 10)): ";
         cin >> length;
-        
-        arr = fillList(length);
+
+        int* arr = new int[length];
+        fillList(arr, length);
+
+        int time = 0;
 
         switch (choice) {
             case 1:
-                selectionSort(arr, length);
+                //selectionSort(arr, length);
                 break;
             case 2:
-                bubbleSort(arr, length);
+                //bubbleSort(arr, length);
                 break;
             case 3:
-                insertionSort(arr, length);
+                //insertionSort(arr, length);
                 break;
             case 4:
-                mergeSort(arr, 0, length - 1);
+                //mergeSort(arr, 0, length - 1);
                 break;
             case 5:
-                quickSort(arr, 0, length - 1);
+                quicksort(arr, 0, length - 1);
                 break;
             case 6:
-                heapSort(arr, length);
+                //heapSort(arr, length);
                 break;
             default:
                 cout << "Invalid choice. Please choose a number between 1 and 7." << endl;
         }
         cout << endl;
         cout << "First 10 elements of sorted array: " << endl;
-        for(int i=0; i<10; i++)
+        for (int i=0; i<10; i++)
             {
-                cout << i << ": " << arr[i] << endl;
+                cout << i+1 << ": " << arr[i] << endl;
             }
         cout << endl;
-        cout << "Time: " << time << " microseconds"
+        cout << "Time: " << time << " nanoseconds" << endl;
             
         delete[] arr;
+
+        displayMenu();
+        cin >> choice;
     }
 
     return 0;
@@ -81,13 +86,12 @@ void displayMenu()
     cout << "Enter your choice: ";
 }
 
-int* fillList(int length)
+int* fillList(int arr[], int length)
 {
-    int* arr = new int[length];
     srand(time(NULL));
 
     for (int i = 0; i < length; i++) {
-        int num = rand() % length + 1
+        int num = rand() % length + 1;
         arr[i] = num;
     }
 
