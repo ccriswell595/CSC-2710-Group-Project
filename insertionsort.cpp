@@ -9,7 +9,8 @@
    
   using namespace std;
   using namespace std::chrono;
-int main()
+
+void insertionSort(arr[], int length)
 {
       int length;
       int S[length];
@@ -43,6 +44,4 @@ int main()
    
    cout << "\nTime taken: " << duration.count() << " microseconds" << endl;
    cout << "Comparisons: " << count << endl;
-   
-   return 0;
 }   
