@@ -1,7 +1,6 @@
 // Chris Smith
 // insertionSort.cpp
-// g++ insertionSort.cpp -o insert.out
-// ./insert.out
+
    #include "sortingAlgorithms.h"
    #include <iostream>
    #include <ctime>
@@ -36,10 +35,7 @@ void insertionSort(int arr[], int length)
       auto stop = high_resolution_clock::now(); //time end
   
       auto duration = duration_cast<microseconds>(stop - start);
-  // shows first 10 sorted numbers
-      for(int i = 0; i < 10; i++)
-          cout << arr[i] << ", ";
-   
+ 
    cout << "\nTime taken: " << duration.count() << " microseconds" << endl;
    cout << "Comparisons: " << count << endl;
 }   
