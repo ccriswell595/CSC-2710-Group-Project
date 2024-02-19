@@ -12,7 +12,6 @@
 
 void insertionSort(int arr[], int length)
 {
-      int length;
       int arr[length];
       int count = 0;
       int x;
