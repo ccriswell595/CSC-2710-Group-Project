@@ -7,15 +7,21 @@
 using namespace std;
 
 void partition(int arr[], int low, int high, int* pivot); 
-
-void quicksort(int arr[], int low, int high)
+int quicksort(int arr[], int low, int high)
 {
+    auto start = std::chrono::high_resolution_clock::now(); // Record start time
     if (low < high) {
         int pivot;
         partition(arr, low, high, &pivot); 
         quicksort(arr, low, pivot - 1);
         quicksort(arr, pivot + 1, high);
+       
     }
+    auto end = std::chrono::high_resolution_clock::now(); // Record end time
+
+    std::chrono::nanoseconds elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
+    int time= elapsed.count();
+    return time;
 }
 
 void partition(int arr[], int low, int high, int* pivot) 
@@ -39,16 +45,4 @@ void partition(int arr[], int low, int high, int* pivot)
     }
     swap(arr[low], arr[j]);
     *pivot = j; // Update the pivot index through the pointer
-}
-
-int main() 
-{
-    auto start = std::chrono::high_resolution_clock::now(); // Record start time
-    quicksort(arr, 0, length-1);
-    auto end = std::chrono::high_resolution_clock::now(); // Record end time
-
-    std::chrono::microseconds elapsed = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
-    int time= elapsed.count();
-
-   return arr, time
 }
