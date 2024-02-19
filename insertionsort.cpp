@@ -10,7 +10,7 @@
   using namespace std;
   using namespace std::chrono;
 
-void insertionSort(arr[], int length)
+void insertionSort(int arr[], int length)
 {
       int length;
       int S[length];
