@@ -2,7 +2,7 @@
 // insertionSort.cpp
 // g++ insertionSort.cpp -o insert.out
 // ./insert.out
-   
+   #include "sortingAlgorithms.h"
    #include <iostream>
    #include <ctime>
    #include <chrono>
