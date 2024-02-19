@@ -1,46 +1,70 @@
 /*
 Liz Doyle
+CSC 2710
+
+mergesort.cpp
+g++ mergesort.cpp -o merge.out
+./merge.out
 */
 #include <iostream>
 
-void mergesort (int n, S[])
+void mergesort (int arr, int start, int mid, int end)
 {
-  if (n>1)
+  if (start < end)
   {
-    const int h = [ n/2 ], m = n - h;
-    U[ 1 .. h ], V[ 1 .. m ];
-    
-    for ( i = 0; i < h; i++)
-    {
+    mid = (start + end)/2;
 
-    }
-    for ( j = h; j < m; j++)
-    {
-
-    }
-    mergesort(h, U);
-    mergesort(m, V);
-    merge( h, m, U, V, S );
+    mergesort(arr, start, mid);
+    mergesort(arr, mid +1, end);
+    merge(arr, start, mid, end);
   }
 }
 
-void merge (L, R, S)
+void merge(int* arr, int start, int mid, int end)
 {
-  nL = length(L);
-  nR = length(R);
-  index i, j, k = 1;
-  while (i ≤ nL && j ≤ nR)
-  {
-    if (L[i] ≤ R[j])
+    int leftPtr = start;
+    int rightPtr = mid + 1;
+    int mergedArrSize = end - start + 1;
+    int mergedArray[mergedArrSize];
+
+    int i = 0;
+    while(leftPtr <= mid && rightPtr <= end)
     {
-      S[k] = L[i];
-      i++;
+        if(arr[leftPtr] <= arr[rightPtr])
+        {
+            mergedArray[i] = arr[leftPtr];
+            leftPtr++;
+        }
+        else
+        {
+            mergedArray[i] = arr[rightPtr];
+            rightPtr++;
+        }
+        i++;
     }
-    else
+
+    while(leftPtr <= mid)
     {
-      S[k] = R[j];
-      j++;
+        mergedArray[i] = arr[leftPtr];
+        leftPtr += 1;
+        i++;
     }
-    k++;
-  }
+
+    while(rightPtr <= end)
+    {
+        mergedArray[i] = arr[rightPtr];
+        rightPtr += 1;
+        i++;
+    }
+
+    for (int j = 0; j < mergedArrSize; j++)
+    {
+        arr[start + j] = mergedArray[j];
+    }
+
+}
+
+int main()
+{
+
 }
