@@ -32,7 +32,9 @@ return 0;
 //selection sort code
 void selectionSort(int n, int s[])
 {
-
+//time start
+auto start = std::chrono::system_clock::now();
+ 
 int temp;
 int i, j, smallest;
 for(i=1; i<=n-2; i++)
@@ -46,6 +48,15 @@ for(i=1; i<=n-2; i++)
      s[i] = s[smallest];
      s[smallest] = temp;
 
+  //time end
+auto end = std::chrono::system_clock::now();
+
+
+std::chrono::duration<double> elapsed_seconds = end-start;
+    std::time_t end_time = std::chrono::system_clock::to_time_t(end);
+
+    std::cout << "sort time  " << elapsed_seconds.count() << "s"
+              << std::endl;
  }
    
 //random array initialize aand sort
