@@ -4,7 +4,7 @@
 #include <chrono>
 #include "sortingAlgorithms.h"
 using namespace std;
-int selectionSort(int s[], int n);
+//int selectionSort(int s[], int n);
 
 
 
