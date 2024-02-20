@@ -44,7 +44,7 @@ int main()
                 //insertionSort(arr, length);
                 break;
             case 4:
-                //mergeSort(arr, 0, length - 1);
+                mergesort(arr, 0, length - 1);
                 break;
             case 5:
 
