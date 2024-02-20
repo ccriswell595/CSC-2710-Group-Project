@@ -1,75 +1,123 @@
 /********************************************************
 * Colton Criswell, 
 * Course: CSC2710-01
-* Date: 
+* Date: 2/20/2024
 * Description:
 **********************************************************/
 #include <iostream>
 #include <ctime>
 #include <cstdlib>
 #include <chrono>
-#include "sortingAlgorithms.h"
-
+#include "sortingAlgorithms.h" //includes the functions for all the sorting algorithms in separate files
 using namespace std;
 
 void displayMenu();
 int* fillList(int* arr, int length);
+void outputList(int arr[], int length);
+void almostSorted(int* arr, int length);
+void reverseSorted(int* arr, int length);
+void manyDuplicates(int* arr, int length);
 
 int main()
 {
     int choice = 0;
     int length;
+    int input = -1;
     double time = 0;
+    int* arr = nullptr; //initialize the pointer array to null
 
     displayMenu();
     cin >> choice;
     while (choice != 7 && choice > 0 && choice < 8) {
-
         cout << endl;
         cout << "Enter array size (non negative (greater than 10)): ";
         cin >> length;
+        arr = new int[length]; //allocate memory for an array of size length
+        fillList(arr, length); //fill list with random numbers; we will decide after what data set we want
 
-        int* arr = new int[length];
-        fillList(arr, length);
-        auto start = chrono::steady_clock::now(); // Record start time
+        cout << "\nEnter Dataset Type" << endl; 
+        cout << "--------------------" << endl;
+        cout << "1. Randomly Distrubuted" << endl;
+        cout << "2. Almost Sorted" << endl;
+        cout << "3. Reverse Sorted" << endl;
+        cout << "4. Set with many duplicates" << endl;  
+        cin >> input;
+        cout << endl;
+        while (input < 1 && input > 4)
+        {
+            cout << "Enter Dataset Type" << endl;
+            cout << "--------------------" << endl;
+            cout << "1. Randomly Distrubuted" << endl;
+            cout << "2. Almost Sorted" << endl;
+            cout << "3. Reverse Sorted" << endl;
+            cout << "4. Set with many duplicates" << endl;  
+            cin >> input;
+            cout << endl;
+        }
+    
+        switch (input) {
+            case 1:
+                break;
+            case 2:
+                almostSorted(arr, length);
+                break;
+            case 3:
+                reverseSorted(arr, length);
+                break;
+            case 4:
+                manyDuplicates(arr, length);
+                break;
+            default:
+                cout << "Invalid choice. Please choose a number between 1 and 5." << endl;
+        }
+
+        auto start = chrono::steady_clock::now(); //record start time
 
         switch (choice) {
             case 1:
-                //selectionsort(arr, length);
+                outputList(arr, length);
+                //selectionSort(arr, length);
                 break;
             case 2:
+                outputList(arr, length);
                 //bubbleSort(arr, length);
                 break;
             case 3:
+                outputList(arr, length);
                 //insertionSort(arr, length);
                 break;
             case 4:
-                mergesort(arr, 0, length - 1);
+                outputList(arr, length);
+                //mergeSort(arr, 0, length - 1);
                 break;
             case 5:
-
+                outputList(arr, length);
                 quicksort(arr, 0, length - 1);
                 break;
             case 6:
+                outputList(arr, length);
                 //heapSort(arr, length);
                 break;
             default:
                 cout << "Invalid choice. Please choose a number between 1 and 7." << endl;
         }
-        auto end = chrono::steady_clock::now(); // Record end time
+        auto end = chrono::steady_clock::now(); //record end time
 
-        chrono::nanoseconds elapsed = chrono::duration_cast<chrono::nanoseconds>(end - start);
+        chrono::microseconds elapsed = chrono::duration_cast<chrono::microseconds>(end - start);
         time = elapsed.count();
-        cout << endl;
-        cout << "First 10 elements of sorted array: " << endl;
+
+        cout << "First 10 elements of sorted array: " << endl; //only output first and last 10 elements to show it is sorted
         for (int i=0; i<10; i++)
-            {
                 cout << i+1 << ": " << arr[i] << endl;
-            }
         cout << endl;
-        cout << "Time: " << time << " nanoseconds" << endl;
+        cout << "Last 10 elements of sorted array: " << endl;
+        for (int i=length-1; i>=length-11; i--)
+            cout << i+1 << ": " << arr[i] << endl;
+        cout << endl;
+
+        cout << "Time: " << time << " microseconds" << endl;
             
-        delete[] arr;
+        delete[] arr; //deallocate memory
 
         displayMenu();
         cin >> choice;
@@ -92,7 +140,7 @@ void displayMenu()
     cout << "Enter your choice: ";
 }
 
-int* fillList(int arr[], int length)
+int* fillList(int arr[], int length) //fills the array with random numbers from 0-length
 {
     srand(time(NULL));
 
@@ -100,6 +148,48 @@ int* fillList(int arr[], int length)
         int num = rand() % length + 1;
         arr[i] = num;
     }
-
     return arr;
 }
+
+void outputList(int arr[], int length) //outputs the array before the sorting
+{
+    cout << "First 10 elements of original array: " << endl;
+    for (int i=0; i<10; i++)
+        cout << i+1 << ": " << arr[i] << endl;
+    cout << endl;
+}
+
+void almostSorted(int* arr, int length) //uses quicksort to sort the array and then swaps the first 10% of the array with the last 10%
+{
+    quicksort(arr, 0, length - 1);
+    int temp;
+
+    for (int i = 0; i < length / 10; i++) {
+        temp = arr[i];
+        arr[i] = arr[length - i - 1];
+        arr[length - i - 1] = temp;
+    }   
+}
+
+void reverseSorted(int* arr, int length) //uses quicksort to sort the array and then swaps the first and last elements, incrementing and decrementing until it reaches the middle
+{
+    quicksort(arr, 0, length - 1);
+    int temp;
+
+    for (int i = 0; i < length / 2; i++) {
+        temp = arr[i];
+        arr[i] = arr[length - i - 1];
+        arr[length - i - 1] = temp;
+    }
+}
+
+void manyDuplicates(int* arr, int length) //essentially uses modulo and rand() to make every element a digit 1-10
+{
+    srand(time(NULL));
+
+    for (int i = 0; i < length; i++) {
+        int num = rand() % 10 + 1;
+        arr[i] = num;
+    }
+}
+
