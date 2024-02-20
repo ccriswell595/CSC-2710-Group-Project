@@ -35,7 +35,7 @@ int main()
 
         switch (choice) {
             case 1:
-                //selectionSort(arr, length);
+                //selectionsort(arr, length);
                 break;
             case 2:
                 //bubbleSort(arr, length);
