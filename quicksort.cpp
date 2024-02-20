@@ -2,30 +2,30 @@
 //quicksort.cpp
 #include "sortingAlgorithms.h"
 #include <iostream>
-#include <ctime>
-#include <chrono>
-using namespace std;
 
 void partition(int arr[], int low, int high, int* pivot); 
-int quicksort(int arr[], int low, int high)
+void quicksort(int arr[], int low, int high)
 {
-    auto start = std::chrono::high_resolution_clock::now(); // Record start time
     if (low < high) {
         int pivot;
         partition(arr, low, high, &pivot); 
         quicksort(arr, low, pivot - 1);
         quicksort(arr, pivot + 1, high);
-       
     }
-    auto end = std::chrono::high_resolution_clock::now(); // Record end time
-
-    std::chrono::nanoseconds elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
-    int time= elapsed.count();
-    return time;
+    return; 
 }
 
 void partition(int arr[], int low, int high, int* pivot) 
 {
+    int mid = low + (high - low) / 2;
+    int pivotIndex = (arr[low] < arr[mid]) ? //use conditional logic to find the median of the 3 points
+                     ((arr[mid] < arr[high]) ? mid : ((arr[low] < arr[high]) ? high : low)):
+                     ((arr[high] < arr[mid]) ? mid : ((arr[high] < arr[low]) ? high : low));
+
+    // Swap the pivot element with the element at the low index
+    std::swap(arr[low], arr[pivotIndex]);
+
+
     int pivotVal = arr[low];
     int i = low + 1;
     int j = high;
@@ -41,8 +41,8 @@ void partition(int arr[], int low, int high, int* pivot)
         if (i >= j) {
             break;
         }
-        swap(arr[i], arr[j]);
+        std::swap(arr[i], arr[j]);
     }
-    swap(arr[low], arr[j]);
+    std::swap(arr[low], arr[j]);
     *pivot = j; // Update the pivot index through the pointer
 }
