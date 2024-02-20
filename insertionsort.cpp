@@ -31,13 +31,13 @@ void insertionSort(int arr[], int length)
           }
           arr[j + 1] = x;
       }
- 
+      cout << "\nComparisons: " << count << endl;
       //auto stop = high_resolution_clock::now(); //time end
   
       //auto duration = duration_cast<microseconds>(stop - start);
       
    //int time = duration.count();
       //return time;
-      //return count;
+      
    
 }   
