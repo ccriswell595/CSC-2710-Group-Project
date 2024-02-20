@@ -7,6 +7,7 @@
 #include <iostream>
 #include <ctime>
 #include <cstdlib>
+#include <chrono>
 #include "sortingAlgorithms.h"
 
 using namespace std;
@@ -16,12 +17,13 @@ int* fillList(int* arr, int length);
 
 int main()
 {
-    int choice=0;
+    int choice = 0;
     int length;
+    double time = 0;
 
     displayMenu();
     cin >> choice;
-    while (choice != 7) {
+    while (choice != 7 && choice > 0 && choice < 8) {
 
         cout << endl;
         cout << "Enter array size (non negative (greater than 10)): ";
@@ -29,8 +31,7 @@ int main()
 
         int* arr = new int[length];
         fillList(arr, length);
-
-        int time = 0;
+        auto start = chrono::steady_clock::now(); // Record start time
 
         switch (choice) {
             case 1:
@@ -46,6 +47,7 @@ int main()
                 //mergeSort(arr, 0, length - 1);
                 break;
             case 5:
+
                 quicksort(arr, 0, length - 1);
                 break;
             case 6:
@@ -54,6 +56,10 @@ int main()
             default:
                 cout << "Invalid choice. Please choose a number between 1 and 7." << endl;
         }
+        auto end = chrono::steady_clock::now(); // Record end time
+
+        chrono::nanoseconds elapsed = chrono::duration_cast<chrono::nanoseconds>(end - start);
+        time = elapsed.count();
         cout << endl;
         cout << "First 10 elements of sorted array: " << endl;
         for (int i=0; i<10; i++)
