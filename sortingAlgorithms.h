@@ -5,7 +5,7 @@
 //void bubbleSort(int arr[], int length);
 //void insertionSort(int arr[], int length);
 //void mergeSort(int arr[], int left, int right);
-int quicksort(int arr[], int low, int length);
+void quicksort(int arr[], int low, int high);
 //void heapSort(int arr[], int length);
 
 #endif 
