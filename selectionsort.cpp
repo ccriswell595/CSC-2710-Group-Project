@@ -9,7 +9,7 @@ using namespace std;
 
 
    //selection sort code
-int selectionSort(int s[], int n)
+int selectionsort(int s[], int n)
 {
    //time start
  auto start = std::chrono::high_resolution_clock::now();
