@@ -16,7 +16,7 @@ void insertionSort(int arr[], int length)
       
       //testing array, int S[] = {7, 5 , 2, 4, 6, 8, 1, 9, 3, 10};
    
-      auto start = high_resolution_clock::now(); //time start
+      //auto start = high_resolution_clock::now(); //time start
   
       for(int i = 1; i < length; i++)
       {
@@ -32,12 +32,12 @@ void insertionSort(int arr[], int length)
           arr[j + 1] = x;
       }
  
-      auto stop = high_resolution_clock::now(); //time end
+      //auto stop = high_resolution_clock::now(); //time end
   
-      auto duration = duration_cast<microseconds>(stop - start);
+      //auto duration = duration_cast<microseconds>(stop - start);
       
-   int time = duration.count();
-      return time;
-      return count;
+   //int time = duration.count();
+      //return time;
+      //return count;
    
 }   
