@@ -76,7 +76,7 @@ int main()
         switch (choice) {
             case 1:
                 outputList(arr, length);
-                //selectionsort(arr, length);
+                selectionsort(arr, length);
                 break;
             case 2:
                 outputList(arr, length);
