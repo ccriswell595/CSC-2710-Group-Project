@@ -79,7 +79,7 @@ int main()
                 break;
             case 2:
                 outputList(arr, length);
-                //bubbleSort(arr, length);
+                bubbleSort(arr, length);
                 break;
             case 3:
                 outputList(arr, length);
