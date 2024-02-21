@@ -1,8 +1,7 @@
 /********************************************************
-* Colton Criswell, 
+* Colton, Chris, Liz, Hannah, Aliya
 * Course: CSC2710-01
 * Date: 2/20/2024
-* Description:
 **********************************************************/
 #include <iostream>
 #include <ctime>
