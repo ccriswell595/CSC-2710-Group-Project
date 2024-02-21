@@ -88,7 +88,7 @@ int main()
                 break;
             case 4:
                 outputList(arr, length);
-                //mergeSort(arr, 0, length - 1);
+                mergesort(arr, 0, length - 1);
                 break;
             case 5:
                 outputList(arr, length);
