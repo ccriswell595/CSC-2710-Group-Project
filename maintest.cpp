@@ -1,12 +1,13 @@
 /********************************************************
-* Colton, Chris, Liz, Hannah, Aliya
+* Colton Criswell, 
 * Course: CSC2710-01
 * Date: 2/20/2024
+* Description:
 **********************************************************/
 #include <iostream>
 #include <ctime>
 #include <cstdlib>
-#include <chrono>
+#include <chrono> 
 #include "sortingAlgorithms.h" //includes the functions for all the sorting algorithms in separate files
 using namespace std;
 
@@ -39,7 +40,8 @@ int main()
         cout << "1. Randomly Distrubuted" << endl;
         cout << "2. Almost Sorted" << endl;
         cout << "3. Reverse Sorted" << endl;
-        cout << "4. Set with many duplicates" << endl;  
+        cout << "4. Set with many duplicates" << endl;
+        cout << "\nEnter your choice:";
         cin >> input;
         cout << endl;
         while (input < 1 && input > 4)
@@ -75,7 +77,7 @@ int main()
         switch (choice) {
             case 1:
                 outputList(arr, length);
-                selectionsort(arr, length);
+                selectionSort(arr, length);
                 break;
             case 2:
                 outputList(arr, length);
@@ -87,15 +89,16 @@ int main()
                 break;
             case 4:
                 outputList(arr, length);
-                mergesort(arr, 0, length - 1);
+                mergeSort(arr, 0, length - 1);
                 break;
             case 5:
                 outputList(arr, length);
                 quicksort(arr, 0, length - 1);
                 break;
             case 6:
-                outputList(arr, length);
-                //heapSort(arr, length);
+                //outputList(arr, length);
+                heap myHeap;
+                heapsort(length, myHeap, arr);
                 break;
             default:
                 cout << "Invalid choice. Please choose a number between 1 and 7." << endl;
@@ -105,7 +108,7 @@ int main()
         chrono::microseconds elapsed = chrono::duration_cast<chrono::microseconds>(end - start);
         time = elapsed.count();
 
-        cout << "First 10 elements of sorted array: " << endl; //only output first and last 10 elements to show it is sorted
+        /*cout << "First 10 elements of sorted array: " << endl; //only output first and last 10 elements to show it is sorted
         for (int i=0; i<10; i++)
                 cout << i+1 << ": " << arr[i] << endl;
         cout << endl;
@@ -113,7 +116,7 @@ int main()
         for (int i=length-1; i>=length-11; i--)
             cout << i+1 << ": " << arr[i] << endl;
         cout << endl;
-
+        */
         cout << "Time: " << time << " microseconds" << endl;
             
         delete[] arr; //deallocate memory
@@ -191,6 +194,8 @@ void manyDuplicates(int* arr, int length) //essentially uses modulo and rand() t
         arr[i] = num;
     }
 }
+
+
 
 void merge(int* arr, int start, int mid, int end)
 {   
