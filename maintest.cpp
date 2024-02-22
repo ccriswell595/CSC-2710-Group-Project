@@ -199,6 +199,7 @@ void manyDuplicates(int* arr, int length) //essentially uses modulo and rand() t
 
 void merge(int* arr, int start, int mid, int end)
 {   
+    int operationcounter = 0;
     int leftPtr = start; 
     int rightPtr = mid + 1; 
     int mergedArrSize = end - start + 1;
@@ -211,13 +212,19 @@ void merge(int* arr, int start, int mid, int end)
         {   
             mergedArray[i] = arr[leftPtr];
             leftPtr++;
+            operationcounter++;
+
         }
         else
         {   
             mergedArray[i] = arr[rightPtr];
             rightPtr++;
+            operationcounter++;
+
         }
         i++;
+        operationcounter++;
+
     }
     
     while(leftPtr <= mid)
@@ -225,6 +232,8 @@ void merge(int* arr, int start, int mid, int end)
         mergedArray[i] = arr[leftPtr];
         leftPtr += 1;
         i++;
+        operationcounter++;
+
     }
     
     while(rightPtr <= end)
@@ -232,11 +241,15 @@ void merge(int* arr, int start, int mid, int end)
         mergedArray[i] = arr[rightPtr];
         rightPtr += 1;
         i++;
+        operationcounter++;
+
     }
     
     for (int j = 0; j < mergedArrSize; j++)
     {   
         arr[start + j] = mergedArray[j];
+        operationcounter++;
+
     }
 
 }
@@ -252,11 +265,14 @@ void mergesort (int arr[], int start, int end)
     for (int i = 0; i < mid; i++)
     {
       lower[i] = arr[i];
+      operationcounter++;
     }
 
     for(int j = mid - 1; j < end; j++)
     {
       upper[j] = arr[j];
+      operationcounter++;
+
     }
 
     mergesort(arr, start, mid);
