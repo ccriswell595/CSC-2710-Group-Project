@@ -25,6 +25,7 @@ int main()
     int input = -1;
     double time = 0;
     int* arr = nullptr; //initialize the pointer array to null
+    int operationcounter = 0;
 
     displayMenu();
     cin >> choice;
@@ -89,7 +90,7 @@ int main()
                 break;
             case 4:
                 outputList(arr, length);
-                mergeSort(arr, 0, length - 1);
+                mergesort(arr, 0, length - 1);
                 break;
             case 5:
                 outputList(arr, length);
@@ -199,7 +200,6 @@ void manyDuplicates(int* arr, int length) //essentially uses modulo and rand() t
 
 void merge(int* arr, int start, int mid, int end)
 {   
-    int operationcounter = 0;
     int leftPtr = start; 
     int rightPtr = mid + 1; 
     int mergedArrSize = end - start + 1;
