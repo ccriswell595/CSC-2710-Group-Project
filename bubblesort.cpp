@@ -33,3 +33,28 @@ void bubbleSort(int arr[], int length) {
 
    
 }
+
+int main()
+{
+      int counter;
+      int arr[] = { };
+        int arrsize = sizeof(arr) / sizeof(arr[0]);
+        auto start = chrono::steady_clock::now(); //record start time
+        bubblesort(arr, r, length;
+
+                auto end = chrono::steady_clock::now(); //record end time
+
+        chrono::microseconds elapsed = chrono::duration_cast<chrono::microseconds>(end - start);
+        int time = elapsed.count();
+        cout << "Time: " << time << " microseconds" << endl;
+
+        cout << "Sorted: ";
+        for(int i = 0; i <arrsize; i++)
+        {
+           cout << arr[i] << " ";
+        }
+        cout << "counter: ";
+        cout << counter;
+        cout << endl;
+
+        return 0;
