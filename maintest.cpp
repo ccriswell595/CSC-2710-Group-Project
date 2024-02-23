@@ -25,7 +25,7 @@ int main()
     int input = -1;
     double time = 0;
     int* arr = nullptr; //initialize the pointer array to null
-    int operationcounter = 0;
+    //int operationcounter = 0;
 
     displayMenu();
     cin >> choice;
@@ -212,18 +212,18 @@ void merge(int* arr, int start, int mid, int end)
         {   
             mergedArray[i] = arr[leftPtr];
             leftPtr++;
-            operationcounter++;
+            //operationcounter++;
 
         }
         else
         {   
             mergedArray[i] = arr[rightPtr];
             rightPtr++;
-            operationcounter++;
+            //operationcounter++;
 
         }
         i++;
-        operationcounter++;
+        //operationcounter++;
 
     }
     
@@ -232,7 +232,7 @@ void merge(int* arr, int start, int mid, int end)
         mergedArray[i] = arr[leftPtr];
         leftPtr += 1;
         i++;
-        operationcounter++;
+        //operationcounter++;
 
     }
     
@@ -241,14 +241,14 @@ void merge(int* arr, int start, int mid, int end)
         mergedArray[i] = arr[rightPtr];
         rightPtr += 1;
         i++;
-        operationcounter++;
+        //operationcounter++;
 
     }
     
     for (int j = 0; j < mergedArrSize; j++)
     {   
         arr[start + j] = mergedArray[j];
-        operationcounter++;
+        //operationcounter++;
 
     }
 
@@ -265,13 +265,13 @@ void mergesort (int arr[], int start, int end)
     for (int i = 0; i < mid; i++)
     {
       lower[i] = arr[i];
-      operationcounter++;
+      //operationcounter++;
     }
 
     for(int j = mid - 1; j < end; j++)
     {
       upper[j] = arr[j];
-      operationcounter++;
+      //operationcounter++;
 
     }
 
