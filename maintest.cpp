@@ -29,7 +29,7 @@ int main()
 
     displayMenu();
     cin >> choice;
-    while (choice != 7 && choice > 0 && choice < 8) {
+/*    while (choice != 7 && choice > 0 && choice < 8) {
         cout << endl;
         cout << "Enter array size (non negative (greater than 10)): ";
         cin >> length;
@@ -72,7 +72,7 @@ int main()
             default:
                 cout << "Invalid choice. Please choose a number between 1 and 5." << endl;
         }
-
+*/
         auto start = chrono::steady_clock::now(); //record start time
 
         switch (choice) {
@@ -143,6 +143,7 @@ void displayMenu()
     cout << "Enter your choice: ";
 }
 
+/*
 int* fillList(int arr[], int length) //fills the array with random numbers from 0-length
 {
     srand(time(NULL));
@@ -196,7 +197,7 @@ void manyDuplicates(int* arr, int length) //essentially uses modulo and rand() t
     }
 }
 
-
+*/
 
 void merge(int* arr, int start, int mid, int end)
 {   
