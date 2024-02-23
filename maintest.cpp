@@ -25,7 +25,6 @@ int main()
     int input = -1;
     double time = 0;
     int* arr = nullptr; //initialize the pointer array to null
-    //int operationcounter = 0;
 
     displayMenu();
     cin >> choice;
@@ -205,6 +204,7 @@ void merge(int* arr, int start, int mid, int end)
     int rightPtr = mid + 1; 
     int mergedArrSize = end - start + 1;
     int mergedArray[mergedArrSize];
+    int counter = 0;
     
     int i = 0;
     while(leftPtr <= mid && rightPtr <= end)
@@ -213,18 +213,18 @@ void merge(int* arr, int start, int mid, int end)
         {   
             mergedArray[i] = arr[leftPtr];
             leftPtr++;
-            //operationcounter++;
+            counter++;
 
         }
         else
         {   
             mergedArray[i] = arr[rightPtr];
             rightPtr++;
-            //operationcounter++;
+            counter++;
 
         }
         i++;
-        //operationcounter++;
+        counter++;
 
     }
     
@@ -233,7 +233,7 @@ void merge(int* arr, int start, int mid, int end)
         mergedArray[i] = arr[leftPtr];
         leftPtr += 1;
         i++;
-        //operationcounter++;
+        counter++;
 
     }
     
@@ -242,14 +242,14 @@ void merge(int* arr, int start, int mid, int end)
         mergedArray[i] = arr[rightPtr];
         rightPtr += 1;
         i++;
-        //operationcounter++;
+        counter++;
 
     }
     
     for (int j = 0; j < mergedArrSize; j++)
     {   
         arr[start + j] = mergedArray[j];
-        //operationcounter++;
+        counter++;
 
     }
 
@@ -257,6 +257,7 @@ void merge(int* arr, int start, int mid, int end)
 
 void mergesort (int arr[], int start, int end)
 {
+  int counter = 0;
   if (start < end)
   {
     int mid = (start + end)/2;
@@ -266,13 +267,13 @@ void mergesort (int arr[], int start, int end)
     for (int i = 0; i < mid; i++)
     {
       lower[i] = arr[i];
-      //operationcounter++;
+      counter++;
     }
 
     for(int j = mid - 1; j < end; j++)
     {
       upper[j] = arr[j];
-      //operationcounter++;
+      counter++;
 
     }
 
